@@ -1,0 +1,200 @@
+/* General Styles */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.canvas-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure the canvas stays in the background */
+}
+
+/* Login Container */
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2; /* Ensure this stays above the canvas */
+}
+
+h1 {
+  font-size: 2rem;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+/* Buttons Styling */
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background: rgb(39, 147, 255);
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(39, 147, 255, 0.6);
+}
+
+/* Login and Registration Page */
+.login-page,
+.registration-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  background-image: url('/public/images/solar.jpg'); /* Set your background image */
+  background-size: cover; /* Ensure the background image covers the full screen */
+  background-position: center center; /* Center the image */
+  background-attachment: fixed; /* Keep the background fixed when scrolling */
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.7); /* Add some transparency to the background */
+  padding: 20px;
+  border-radius: 12px; /* Rounded corners for the form box */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+input {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #2b2b2b;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+  width: 100%; /* Ensure input fields are 100% width */
+  box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+input:focus {
+  border-color: rgb(39, 147, 255);
+  outline: none;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Full-width input fields */
+.full-width {
+  width: 100%;
+}
+
+/* Social Button Container */
+.social-button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-button {
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease-in-out;
+  width: 45%; /* Each social button takes up 45% of the container width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-button i {
+  font-size: 20px;
+}
+
+/* Line between login and social buttons */
+.line {
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Center and Style the "Don't have an account?" Text */
+p {
+  text-align: center; /* Center-align the text */
+  color: white; /* Make the text white */
+  margin-top: 20px; /* Add some space above the text */
+  font-size: 16px; /* Set a font size for better readability */
+}
+
+p a {
+  color: white; /* Make the link text white */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the link text bold */
+  transition: color 0.3s ease-in-out; /* Add a smooth color transition */
+}
+
+p a:hover {
+  color: rgb(39, 147, 255); /* Change link color on hover */
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    width: 80%;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  .login-container {
+    top: 45%;
+  }
+}

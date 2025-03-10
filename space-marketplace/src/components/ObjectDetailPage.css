@@ -1,0 +1,91 @@
+/* ObjectDetailPage.css */
+.object-detail-page {
+  height: 100vh;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  background-image: url('/public/images/solar.jpg'); /* Set the same background as the first page */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for the info section */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.image-container {
+  margin-right: 20px;
+}
+
+.image-container img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff; /* Ensures text is white inside the info container */
+}
+
+.info-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: rgb(39, 147, 255);
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(39, 147, 255, 0.6);
+}
+
+.info-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.offer-price-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.offer-price-container label {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
