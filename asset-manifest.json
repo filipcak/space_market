@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/space_market/static/css/main.f8be5de5.css",
+    "main.js": "/space_market/static/js/main.386d2654.js",
+    "static/js/453.338448a7.chunk.js": "/space_market/static/js/453.338448a7.chunk.js",
+    "static/media/solar.jpg": "/space_market/static/media/solar.65db62fecd2ead84a25e.jpg",
+    "index.html": "/space_market/index.html",
+    "main.f8be5de5.css.map": "/space_market/static/css/main.f8be5de5.css.map",
+    "main.386d2654.js.map": "/space_market/static/js/main.386d2654.js.map",
+    "453.338448a7.chunk.js.map": "/space_market/static/js/453.338448a7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8be5de5.css",
+    "static/js/main.386d2654.js"
+  ]
+}
