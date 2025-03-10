@@ -25,14 +25,14 @@ const Home = () => {
         <Sun />
 
         {/* Planets */}
-        <Planet position={[57.9, 0, 0]} size={3} texturePath="/textures/mercury.jpg" speed={0.02} />
-        <Planet position={[108.2, 0, 0]} size={5} texturePath="/textures/venus.jpg" speed={0.015} />
-        <Planet position={[149.6, 0, 0]} size={6} texturePath="/textures/earth.jpg" speed={0.01} />
-        <Planet position={[227.9, 0, 0]} size={4} texturePath="/textures/mars.jpg" speed={0.008} />
-        <Planet position={[778.5, 0, 0]} size={10} texturePath="/textures/jupiter.jpg" speed={0.004} /> {/* Jupiter */}
-        <Planet position={[1429, 0, 0]} size={8} texturePath="/textures/saturn.jpg" speed={0.002} /> {/* Saturn */}
-        <Planet position={[2871, 0, 0]} size={7} texturePath="/textures/uranus.jpg" speed={0.0015} /> {/* Uranus */}
-        <Planet position={[4495, 0, 0]} size={6} texturePath="/textures/neptune.jpg" speed={0.001} /> {/* Neptune */}
+        <Planet position={[57.9, 0, 0]} size={3} texturePath="/space_market/textures/mercury.jpg" speed={0.02} />
+        <Planet position={[108.2, 0, 0]} size={5} texturePath="/space_market/textures/venus.jpg" speed={0.015} />
+        <Planet position={[149.6, 0, 0]} size={6} texturePath="/space_market/textures/earth.jpg" speed={0.01} />
+        <Planet position={[227.9, 0, 0]} size={4} texturePath="/space_market/textures/mars.jpg" speed={0.008} />
+        <Planet position={[778.5, 0, 0]} size={10} texturePath="/space_market/textures/jupiter.jpg" speed={0.004} /> {/* Jupiter */}
+        <Planet position={[1429, 0, 0]} size={8} texturePath="/space_market/textures/saturn.jpg" speed={0.002} /> {/* Saturn */}
+        <Planet position={[2871, 0, 0]} size={7} texturePath="/space_market/textures/uranus.jpg" speed={0.0015} /> {/* Uranus */}
+        <Planet position={[4495, 0, 0]} size={6} texturePath="/space_market/textures/neptune.jpg" speed={0.001} /> {/* Neptune */}
 
         <OrbitControls />
       </Canvas>
@@ -48,9 +48,9 @@ const Home = () => {
   );
 };
 
-function App() {
+const App = () => {
   return (
-    <Router>
+    <Router basename="/space_market">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
@@ -62,6 +62,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

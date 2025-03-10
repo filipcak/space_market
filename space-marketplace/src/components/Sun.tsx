@@ -2,7 +2,7 @@ import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 
 const Sun = () => {
-  const texture = useLoader(TextureLoader, "./textures/sun.jpg"); // Add sun texture
+  const texture = useLoader(TextureLoader, "/space_market/textures/sun.jpg"); // Add sun texture
 
   return (
     <mesh>
