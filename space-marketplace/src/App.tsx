@@ -11,6 +11,7 @@ import SpacePage from "./components/SpacePage";
 import SearchSpacePage from "./components/SearchSpacePage";
 import ObjectDetailPage from "./components/ObjectDetailPage";
 import AdminPage from "./components/AdminPage";
+import DemandsPage from "./components/DemandsPage";
 import "./App.css";
 
 const Home = () => {
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/space" element={<SpacePage />} />
         <Route path="/search-space" element={<SearchSpacePage />} />
         <Route path="/object-detail" element={<ObjectDetailPage />} />
+        <Route path="/demands" element={<DemandsPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </Router>

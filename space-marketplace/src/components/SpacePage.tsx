@@ -14,6 +14,10 @@ const SpacePage = () => {
     navigate("/admin");
   };
 
+  const handleDemand = () => {
+    navigate("/demands");
+  }
+
   // Handle Log Out and navigate to the homepage
   const handleLogout = () => {
     navigate("/"); // This will navigate the user to the homepage
@@ -25,6 +29,7 @@ const SpacePage = () => {
         <h1>Welcome to the Space Marketplace!</h1>
         <div className="button-container">
           <button type="button" onClick={handleSearch}>Search Space Object</button>
+          <button type="button" onClick={handleDemand}>Demands</button>
           <button type="button" onClick={handleAdmin}>Admin Page</button>
           <button type="button" onClick={handleLogout}>Log Out</button> {/* Log Out Button */}
         </div>

@@ -1,19 +1,41 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { backenUrl } from '../global/constants';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here, you can handle login logic, like checking credentials
-    console.log("Logged in:", { username, password });
-
-    // After login, redirect to the Home page
-    navigate("/space");
+  
+    try {
+      const res = await fetch(backenUrl + "/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+  
+      if (!res.ok) {
+        const data = await res.json();
+        alert(data.error || "Login failed");
+        return;
+      }
+  
+      const user = await res.json();
+      // Store user info in localStorage (or context)
+      localStorage.setItem("user_id", user.uuid);
+      localStorage.setItem("username", user.username);
+      navigate("/space");
+    } catch (err) {
+      alert("An error occurred. Please try again.");
+      console.error(err);
+    }
   };
+  
 
   const handleGoogleLogin = () => {
     // Google login logic here
@@ -69,7 +91,7 @@ const LoginPage = () => {
         <div className="line"></div> {/* Line before the registration text */}
 
         <p>
-          <a href="/register">Don't have an account? Register here.</a>
+          <a href="/space_market/register">Don't have an account? Register here.</a>
         </p>
       </form>
     </div>

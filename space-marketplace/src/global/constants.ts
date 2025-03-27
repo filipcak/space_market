@@ -1,0 +1,1 @@
+export const backenUrl = "http://localhost:5001";

@@ -22,15 +22,16 @@ h1 {
 }
 
 .search-bar {
-    padding: 10px;
+    flex: 1;
     width: 80%;
     max-width: 600px; /* Increase max-width for larger search bar */
-    margin-bottom: 20px;
     background-color: #2b2b2b;
     color: white;
     border-radius: 8px;
     border: none;
     font-size: 16px;
+    margin-top: 20px; /* Adjust margin to align with the table */
+    height: 40px; /* 👈 Force consistent height */
 }
 
 .space-table {
@@ -72,6 +73,22 @@ button:focus {
     outline: none;
     box-shadow: 0px 0px 10px rgba(39, 147, 255, 0.6);
 }
+
+.error-popup {
+    background-color: #ffdddd;
+    color: #b30000;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #b30000;
+    border-radius: 5px;
+  }
+
+  .search-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+  }
+  
 
 /* Ensure responsiveness */
 @media (max-width: 768px) {

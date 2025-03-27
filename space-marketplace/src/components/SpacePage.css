@@ -62,6 +62,42 @@ form {
     outline: none;
     box-shadow: 0px 0px 10px rgba(39, 147, 255, 0.6);
   }
+  .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: black;
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 300px;
+}
+
+.modal-content input,
+.modal-content select {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
   
   /* Mobile responsiveness */
   @media (max-width: 768px) {
