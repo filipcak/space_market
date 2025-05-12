@@ -25,14 +25,15 @@ const DemandsPage = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const user_id = localStorage.getItem("user_id");
+  const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
     if (!user_id) {
       setError("User not logged in.");
       return;
     }
-
-    // Fetch user's own demands
+  
+    // Fetch user demands
     fetch(`${backenUrl}/demands?user_id=${user_id}`)
       .then((res) => res.json())
       .then(setUserDemands)
@@ -40,8 +41,8 @@ const DemandsPage = () => {
         console.error("Failed to fetch user demands:", err);
         setError("Failed to load your demands.");
       });
-
-    // Fetch owned objects and all demands to filter by ownership
+  
+    // Fetch owned objects and all demands
     Promise.all([
       fetch(`${backenUrl}/galactic_objects/owned_by/${user_id}`).then((res) => res.json()),
       fetch(`${backenUrl}/demands`).then((res) => res.json())
@@ -56,7 +57,9 @@ const DemandsPage = () => {
         console.error("Failed to fetch object demands:", err);
         setError("Failed to load demands for your objects.");
       });
-  }, [user_id]);
+  
+  }, [user_id, refreshKey]); 
+  
 
   const handleGoBack = () => {
     navigate("/space");
@@ -83,15 +86,48 @@ const DemandsPage = () => {
       }
   
       alert("Offer confirmed!");
+      setRefreshKey(prev => prev + 1);
       // Optional: Refresh the page or update state
       setObjectDemands(prev =>
         prev.map(d => d.uuid === demand.uuid ? { ...d, status: "accepted" } : d)
       );
     } catch (err) {
       console.error("Confirm error:", err);
+      setRefreshKey(prev => prev + 1);
       alert("Could not confirm offer.");
     }
   };
+
+  const handleDeclineOffer = async (objectId: string) => {
+    const demand = objectDemands.find(d => d.galactic_object_id === objectId && d.status === "pending");
+  
+    if (!demand) {
+      alert("No pending offer found to decline.");
+      return;
+    }
+  
+    const confirmed = window.confirm("Are you sure you want to decline this offer?");
+    if (!confirmed) return;
+  
+    try {
+      const res = await fetch(`${backenUrl}/demands/${demand.uuid}`, {
+        method: "DELETE",
+      });
+  
+      if (!res.ok) {
+        throw new Error("Failed to decline (delete) offer.");
+      }
+  
+      alert("Offer declined.");
+      setRefreshKey(prev => prev + 1);
+      setObjectDemands(prev => prev.filter(d => d.uuid !== demand.uuid));
+    } catch (err) {
+      console.error("Decline error:", err);
+      setRefreshKey(prev => prev + 1);
+      alert("Could not decline offer.");
+    }
+  };
+  
   
 
   return (
@@ -147,13 +183,21 @@ const DemandsPage = () => {
                 <td>{obj.uuid}</td>
                 <td>
                     {obj.has_offer ? (
+                        <div style={{ display: "flex", gap: "10px" }}>
                         <button onClick={() => handleConfirmOffer(obj.uuid)}>
-                        Confirm Offer
+                            Confirm Offer
                         </button>
+                        <button
+                            onClick={() => handleDeclineOffer(obj.uuid)}
+                            style={{ backgroundColor: "crimson", color: "white" }}
+                        >
+                            Decline Offer
+                        </button>
+                        </div>
                     ) : (
                         "No offers"
                     )}
-                    </td>
+                </td>
 
             </tr>
             ))}
@@ -161,8 +205,6 @@ const DemandsPage = () => {
         </table>
     </>
     )}
-
-
       <button onClick={handleGoBack} className="go-back-button">Go Back</button>
     </div>
   );
